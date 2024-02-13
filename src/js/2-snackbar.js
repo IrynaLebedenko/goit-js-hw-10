@@ -18,12 +18,11 @@ function delayFunction(delay, state) {
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  const delay = parseInt(e.target.elements.delay.value, 5);
+  const delay = parseInt(e.target.elements.delay.value, 10);
   const state = e.target.elements.state.value;
 
   delayFunction(delay, state)
     .then(result => {
-      console.log(result);
       iziToast.success({
         title: '',
         message: `${result}`,
@@ -31,7 +30,6 @@ form.addEventListener('submit', e => {
       });
     })
     .catch(err => {
-      console.log(err);
       iziToast.error({
         title: '',
         message: `${err}`,
